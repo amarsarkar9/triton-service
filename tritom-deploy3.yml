@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: triton-service
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: triton-service
+  template:
+    metadata:
+      labels:
+        app: triton-service
+
+    spec:
+      containers:
+        - name: ingestion-service
+          image: nvcr.io/nvidia/tritonserver:22.11-py3
+          #computer_vision_dashboard_ui
+          imagePullPolicy: Always
+      # resources:
+      #   requests:
+      #     cpu: 500m
+      #   limits:
+      #     cpu: 1000m
+
+      # imagePullSecrets:
+      #   - name: regcred
