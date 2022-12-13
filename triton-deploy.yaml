@@ -14,12 +14,12 @@ metadata:
       labels:
         app: flower
     spec:
-      volumes:
-        - name: models
-          nfs:
-            server: <IP address of the server>
-            path: <path/to/flowerdemo/model/files>
-            readOnly: false
+      # volumes:
+      #   - name: models
+      #     nfs:
+      #       server: <IP address of the server>
+      #       path: <path/to/flowerdemo/model/files>
+      #       readOnly: false
       containers:
         - name: flower
           ports:
