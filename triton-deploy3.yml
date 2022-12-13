@@ -15,7 +15,7 @@ spec:
 
     spec:
       containers:
-        - name: ingestion-service
+        - name: triton-service
           image: nvcr.io/nvidia/tritonserver:22.11-py3
           #computer_vision_dashboard_ui
           imagePullPolicy: Always
