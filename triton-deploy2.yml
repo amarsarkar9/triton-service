@@ -10,12 +10,12 @@ spec:
   selector:
     matchLabels:
       app: triton-3gpu      
-      version: v1
+      # version: v1
   template:
     metadata:
       labels:
         app: triton-3gpu
-        version: v1
+        # version: v1
     spec:
       containers:
       - image: nvcr.io/nvidia/tritonserver:20.07-v1-py3
@@ -26,7 +26,7 @@ spec:
         ports:
         - containerPort: 8000
         - containerPort: 8001
-        - containerPort: 8002
+        # - containerPort: 8002
         resources:
           limits:
             cpu: "2"
