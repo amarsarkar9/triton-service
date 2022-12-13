@@ -1,95 +1,95 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: triton-3gpu
-  name: triton-3gpu
-  namespace: default
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: triton-3gpu      
-      # version: v1
-  # template:
-  #   metadata:
-  #     labels:
-  #       app: triton-3gpu
-  #       # version: v1
-    spec:
-      containers:
-      - image: nvcr.io/nvidia/tritonserver:22.11-py3
-        command: ["/bin/sh", "-c"]
-        # args: ["trtserver --model-store=/mnt/model-repo"]
-        imagePullPolicy: Always
-        name: triton-3gpu
-        ports:
-        - containerPort: 8000
-        - containerPort: 8001
-        # - containerPort: 8002
-      #   resources:
-      #     limits:
-      #       cpu: "2"
-      #       memory: 4Gi
-      #       nvidia.com/gpu: 3
-      #     requests:
-      #       cpu: "2"
-      #       memory: 4Gi
-      #       nvidia.com/gpu: 3
-      #   volumeMounts:
-      #   - name: triton-model-repo
-      #     mountPath: /mnt/model-repo      
-      #     nodeSelector:
-      #   gpu-count: “3”
-      # volumes:
-      # - name: triton-model-repo
-      #   persistentVolumeClaim:
-      #     claimName: triton-pvc
-# ---
 # apiVersion: apps/v1
 # kind: Deployment
 # metadata:
 #   labels:
-#     app: triton-1gpu
-#   name: triton-1gpu
-#   namespace: triton
+#     app: triton-3gpu
+#   name: triton-3gpu
+#   namespace: default
 # spec:
-#   replicas: 3
+#   replicas: 1
 #   selector:
 #     matchLabels:
-#       app: triton-1gpu
-#       version: v1
-#   template:
-#     metadata:
-#       labels:
-#         app: triton-1gpu
-#         version: v1
+#       app: triton-3gpu      
+#       # version: v1
+#   # template:
+#   #   metadata:
+#   #     labels:
+#   #       app: triton-3gpu
+#   #       # version: v1
 #     spec:
 #       containers:
-#       - image: nvcr.io/nvidia/tritonserver:20.07-v1-py3
-#         command: ["/bin/sh", "-c", “sleep 1000”]
-#         args: ["trtserver --model-store=/mnt/model-repo"]
-#         imagePullPolicy: IfNotPresent
-#         name: triton-1gpu
+#       - image: nvcr.io/nvidia/tritonserver:22.11-py3
+#         command: ["/bin/sh", "-c"]
+#         # args: ["trtserver --model-store=/mnt/model-repo"]
+#         imagePullPolicy: Always
+#         name: triton-3gpu
 #         ports:
 #         - containerPort: 8000
 #         - containerPort: 8001
-#         - containerPort: 8002
-#         resources:
-#           limits:
-#             cpu: "2"
-#             memory: 4Gi
-#             nvidia.com/gpu: 1
-#           requests:
-#             cpu: "2"
-#             memory: 4Gi
-#             nvidia.com/gpu: 1
-#         volumeMounts:
-#         - name: triton-model-repo
-#           mountPath: /mnt/model-repo      
-#           nodeSelector:
-#         gpu-count: “1”
-#       volumes:
-#       - name: triton-model-repo
-#         persistentVolumeClaim:
-#           claimName: triton-pvc
+#         # - containerPort: 8002
+#       #   resources:
+#       #     limits:
+#       #       cpu: "2"
+#       #       memory: 4Gi
+#       #       nvidia.com/gpu: 3
+#       #     requests:
+#       #       cpu: "2"
+#       #       memory: 4Gi
+#       #       nvidia.com/gpu: 3
+#       #   volumeMounts:
+#       #   - name: triton-model-repo
+#       #     mountPath: /mnt/model-repo      
+#       #     nodeSelector:
+#       #   gpu-count: “3”
+#       # volumes:
+#       # - name: triton-model-repo
+#       #   persistentVolumeClaim:
+#       #     claimName: triton-pvc
+# # ---
+# # apiVersion: apps/v1
+# # kind: Deployment
+# # metadata:
+# #   labels:
+# #     app: triton-1gpu
+# #   name: triton-1gpu
+# #   namespace: triton
+# # spec:
+# #   replicas: 3
+# #   selector:
+# #     matchLabels:
+# #       app: triton-1gpu
+# #       version: v1
+# #   template:
+# #     metadata:
+# #       labels:
+# #         app: triton-1gpu
+# #         version: v1
+# #     spec:
+# #       containers:
+# #       - image: nvcr.io/nvidia/tritonserver:20.07-v1-py3
+# #         command: ["/bin/sh", "-c", “sleep 1000”]
+# #         args: ["trtserver --model-store=/mnt/model-repo"]
+# #         imagePullPolicy: IfNotPresent
+# #         name: triton-1gpu
+# #         ports:
+# #         - containerPort: 8000
+# #         - containerPort: 8001
+# #         - containerPort: 8002
+# #         resources:
+# #           limits:
+# #             cpu: "2"
+# #             memory: 4Gi
+# #             nvidia.com/gpu: 1
+# #           requests:
+# #             cpu: "2"
+# #             memory: 4Gi
+# #             nvidia.com/gpu: 1
+# #         volumeMounts:
+# #         - name: triton-model-repo
+# #           mountPath: /mnt/model-repo      
+# #           nodeSelector:
+# #         gpu-count: “1”
+# #       volumes:
+# #       - name: triton-model-repo
+# #         persistentVolumeClaim:
+# #           claimName: triton-pvc
