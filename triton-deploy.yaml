@@ -14,12 +14,12 @@ metadata:
       labels:
         app: flower
     spec:
-      # volumes:
-      #   - name: models
-      #     nfs:
-      #       server: <IP address of the server>
-      #       path: <path/to/flowerdemo/model/files>
-      #       readOnly: false
+      volumes:
+        - name: models
+          nfs:
+            server: 20.64.114.103
+            path: /home/anicca/server/docs/examples/model_repository
+            readOnly: false
       containers:
         - name: flower
           ports:
