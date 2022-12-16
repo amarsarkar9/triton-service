@@ -1,4 +1,4 @@
-apiVersion: apps
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flower
@@ -29,7 +29,7 @@ metadata:
               name: grpc-triton
             - containerPort: 8002
               name: metrics-triton
-          image: 'nvcr.io/nvidia/tritonserver:20.12-py3'
+          image: nvcr.io/nvidia/tritonserver:20.12-py3
           volumeMounts:
             - mountPath: /models
               name: models
